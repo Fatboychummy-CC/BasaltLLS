@@ -4,7 +4,7 @@
 --                                Basalt Main                                 --
 --------------------------------------------------------------------------------
 
----@class Basalt
+---@class Basalt : BasaltObject The main Basalt class.
 local basalt = {}
 
 
@@ -258,6 +258,8 @@ function object:onEvent(func)end
 ---@param func function The function to call.
 ---@return BasaltThread thread The thread object.
 function object:addThread(func)end
+
+
 
 
 
@@ -648,6 +650,74 @@ function baseFrame:getOffset()end
 ---@param y number The y offset of the frame.
 ---@return self
 function baseFrame:setOffset(x, y)end
+
+--- Add a frame to the object.
+---@return BasaltFrame frame The frame object.
+function object:addFrame()end
+
+--- Add a button to the object.
+---@return BasaltButton button The button object.
+function object:addButton()end
+
+--- Add a label to the object.
+---@return BasaltLabel label The label object.
+function object:addLabel()end
+
+--- Add a flexbox to the object.
+---@return BasaltFlexBox flexBox The flexbox object.
+function object:addFlexBox()end
+
+--- Add a scrollable frame to the object.
+---@return BasaltScrollableFrame scrollableFrame The scrollable frame object.
+function object:addScrollableFrame()end
+
+--- Add a moveable frame to the object.
+---@return BasaltMovableFrame movableFrame The movable frame object.
+function object:addMovableFrame()end
+
+--- Add a monitor frame to the object.
+---@return BasaltMonitorFrame monitorFrame The monitor frame object.
+function object:addMonitorFrame()end
+
+--- Add a menubar to the object.
+---@return BasaltMenubar menuBar The menubar object.
+function object:addMenuBar()end
+
+--- Add a list to the object.
+---@return BasaltList list The list object.
+function object:addList()end
+
+--- Add an input to the object.
+---@return BasaltInput input The input object.
+function object:addInput()end
+
+--- Add an image to the object.
+---@return BasaltImage image The image object.
+function object:addImage()end
+
+--- Add a graph to the object.
+---@return BasaltGraph graph The graph object.
+function object:addGraph()end
+
+--- Add a base frame to the object.
+---@return BasaltBaseFrame baseFrame The base frame object.
+function object:addBaseFrame()end
+
+--- Add a changeable object to the object.
+---@return BasaltChangeableObject changeableObject The changeable object object.
+function object:addChangeableObject()end
+
+--- Add a checkbox to the object.
+---@return BasaltCheckbox checkbox The checkbox object.
+function object:addCheckbox()end
+
+--- Add a container to the object.
+---@return BasaltContainer container The container object.
+function object:addContainer()end
+
+--- Add a dropdown to the object.
+---@return BasaltDropdown dropdown The dropdown object.
+function object:addDropdown()end
 
 
 
