@@ -1445,6 +1445,143 @@ function program:ondDone(func)end
 --                              BasaltProgressbar                             --
 --------------------------------------------------------------------------------
 
+---@class BasaltProgressbar : BasaltObject, BasaltVisualObject Progressbars are used to display the progress of a task.
+local progressbar = {}
+
+---@alias BasaltProgressBarDirection
+---| `0` # Left to right
+---| `1` # Top to bottom
+---| `2` # Right to left
+---| `3` # Bottom to top
+
+
+
+
+-- Main methods
+
+
+
+--- Set the direction in which the progressbar expands.
+---@param direction BasaltProgressBarDirection
+---@return self
+function progressbar:setDirection(direction)end
+
+--- Set the progress of the progress bar, as a percentage.
+---@param progress number The progress of the progress bar, as a percentage (0-100).
+---@return self
+function progressbar:setProgress(progress)end
+
+--- Get the progress of the progress bar, as a percentage.
+---@return number progress The progress of the progress bar, as a percentage (0-100).
+function progressbar:getProgress()end
+
+--- Change the visual display of the progress bar.
+---@param color Color The color of the progress bar.
+---@param symbol string? The symbol used to display the progress bar (Default space)
+---@param symbolColor Color? The color of the symbol used to display the progress bar.
+---@return self
+function progressbar:setProgressBar(color, symbol, symbolColor)end
+
+--- Change the background symbol of the progress bar.
+---@param symbol string The symbol used to display the background of the progress bar.
+---@return self
+function progressbar:setBackgroundSymbol(symbol)end
+
+
+
+--------------------------------------------------------------------------------
+--                               BasaltScrollbar                              --
+--------------------------------------------------------------------------------
+
+---@class BasaltScrollbar : BasaltObject, BasaltVisualObject, BasaltChangeableObject Scrollbars are used to scroll through content that is too large to fit in the available space.
+local scrollbar = {}
+
+
+
+-- Main methods
+
+
+
+--- Set the symbol used for the scrollbar.
+---@param symbol string The symbol used for the scrollbar.
+---@return self
+function scrollbar:setSymbol(symbol)end
+
+--- Set the background symbol of the progressbar, default is '\127'.
+---@param symbol string The background symbol of the progressbar.
+---@return self
+function scrollbar:setBackgroundSymbol(symbol)end
+
+--- Set the scrollbar orientation. Default orientation is vertical.
+---@param orientation "vertical"|"horizontal" The scrollbar orientation.
+---@return self
+function scrollbar:setBarType(orientation)end
+
+--- Set the maximum scroll of the scrollbar.
+---@param maxScroll number The maximum scroll of the scrollbar.
+---@return self
+function scrollbar:setScrollAmount(maxScroll)end
+
+--- Change the scroll index of the scrollbar.
+---@param scroll number The scroll index of the scrollbar.
+---@return self
+function scrollbar:setIndex(scroll)end
+
+--- Get the scroll index of the scrollbar.
+---@return number scroll The scroll index of the scrollbar.
+function scrollbar:getIndex()end
+
+
+
+--------------------------------------------------------------------------------
+--                                 BasaltSlider                               --
+--------------------------------------------------------------------------------
+
+---@class BasaltSlider : BasaltObject, BasaltVisualObject, BasaltChangeableObject Sliders are used to select a value from a range of values.
+local slider = {}
+
+
+
+--- Set the symbol used for the slider.
+---@param symbol string The symbol used for the slider.
+---@return self
+function slider:setSymbol(symbol)end
+
+--- Set the background symbol of the slider, default is '\127'.
+---@param symbol string The background symbol of the slider.
+---@return self
+function slider:setBackgroundSymbol(symbol)end
+
+--- Set the slider orientation. Default orientation is vertical.
+---@param orientation "vertical"|"horizontal" The slider orientation.
+---@return self
+function slider:setBarType(orientation)end
+
+--- Set the maximum value of the slider.
+---@param maxValue number The maximum value of the slider.
+---@return self
+function slider:setMaxValue(maxValue)end
+
+--- Change the current index of the slider.
+---@param scroll number The scroll index of the slider.
+---@return self
+function slider:setIndex(scroll)end
+
+--- Get the current index of the slider.
+---@return number scroll The scroll index of the slider.
+function slider:getIndex()end
+
+
+
+--------------------------------------------------------------------------------
+--                               BasaltTextfield                              --
+--------------------------------------------------------------------------------
+
+---@class BasaltTextfield : BasaltObject, BasaltVisualObject, BasaltChangeableObject Textfields are used to allow the user to input text.
+local textfield = {}
+
+
+
 
 
 
