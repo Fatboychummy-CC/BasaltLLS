@@ -83,7 +83,7 @@ function basalt.schedule(func)end
 
 --- Set the currently active base frame.
 ---@see Basalt.getActiveFrame
----@param frame BasaltFrame The frame to set as active.
+---@param frame BasaltBaseFrame The frame to set as active.
 function basalt.setActiveFrame(frame)end
 
 --- Set the base-theme.
@@ -296,7 +296,7 @@ function visualObject:isVisible()end
 --- Sets the position of the object. Positions relative to self if `offset` is true (i.e: 1,1 would move it down and right 1).
 ---@param x number|string The x position of the object, or a dynamic value as a string.
 ---@param y number|string The y position of the object, or a dynamic value as a string.
----@param offset boolean Whether the position is relative to self.
+---@param offset boolean? Whether the position is relative to self.
 ---@return self
 function visualObject:setPosition(x, y, offset)end
 
@@ -665,7 +665,7 @@ function object:addLabel()end
 
 --- Add a flexbox to the object.
 ---@return BasaltFlexBox flexBox The flexbox object.
-function object:addFlexBox()end
+function object:addFlexbox()end
 
 --- Add a scrollable frame to the object.
 ---@return BasaltScrollableFrame scrollableFrame The scrollable frame object.
@@ -681,7 +681,7 @@ function object:addMonitorFrame()end
 
 --- Add a menubar to the object.
 ---@return BasaltMenubar menuBar The menubar object.
-function object:addMenuBar()end
+function object:addMenubar()end
 
 --- Add a list to the object.
 ---@return BasaltList list The list object.
