@@ -1697,11 +1697,182 @@ function thread:getStatus()end
 
 
 
+--------------------------------------------------------------------------------
+--                               BasaltTreeview                               --
+--------------------------------------------------------------------------------
+
+---@class BasaltTreeview : BasaltObject, BasaltVisualObject A treeview object is used to display a hierarchical list of items.
+local treeview = {}
+
+---@alias BasaltAnyTreeNode
+---| BasaltTreeRootNode
+---| BasaltTreeNode
 
 
 
+-- Main methods
 
 
+
+--- Set the x and y offset values for the treeview object.
+---@param x number The x offset value for the treeview object.
+---@param y number The y offset value for the treeview object.
+---@return self
+function treeview:setOffset(x, y)end
+
+--- Get the x and y offset values for the treeview object.
+---@return number x The x offset value for the treeview object.
+---@return number y The y offset value for the treeview object.
+function treeview:getOffset()end
+
+--- Set the scrollability of the treeview object.
+---@param scrollable boolean Whether the treeview object should be scrollable or not.
+---@return self
+function treeview:setScrollable(scrollable)end
+
+--- Sets the background and foreground colors of the selected node in the treeview object.
+---@param bg Color The background color of the selected node in the treeview object.
+---@param fg Color The foreground color of the selected node in the treeview object.
+---@param active boolean? Whether the selection color should be active or not.
+---@return self
+function treeview:setSelectionColor(bg, fg, active)end
+
+--- Gets the background and foreground colors of the selected node in the treeview object.
+---@return Color bg The background color of the selected node in the treeview object.
+---@return Color fg The foreground color of the selected node in the treeview object.
+function treeview:getSelectionColor()end
+
+--- Checks if the selection color is active or not.
+---@return boolean active Whether the selection color is active or not.
+function treeview:isSelectionColorActive()end
+
+--- Get the root node of the treeview object.
+---@return BasaltTreeRootNode root The root node of the treeview object.
+function treeview:getRoot()end
+
+--- Set a new root node for the treeview object.
+---@param root BasaltTreeNode The new root node for the treeview object.
+---@return self
+function treeview:setRoot(root)end
+
+
+
+-- Events
+
+
+
+--- Register an event handler for when a node is selected.
+---@param func fun(self:self, node:BasaltAnyTreeNode) The function to call when a node is selected.
+---@return self
+function treeview:onSelect(func)end
+
+
+
+-- BasaltTreeRootNode
+
+---@class BasaltTreeRootNode : BasaltObject, BasaltVisualObject A treeview node object is used to create a hierarchical list of items. The root node does not have a parent.
+local treeRootNode = {}
+
+
+
+-- Main methods
+
+
+
+--- Get the children of the node.
+---@return table<integer, BasaltTreeNode> children The children of the node.
+function treeRootNode:getChildren()end
+
+--- Add a child to the node.
+---@param text string The text of the child.
+---@param expandable boolean Whether the child is expandable or not.
+---@return BasaltTreeNode child The child.
+function treeRootNode:addChild(text, expandable)end
+
+--- Set the expanded state of the specified node.
+---@param expanded boolean Whether the node should be expanded or not.
+---@return self
+function treeRootNode:setExpanded(expanded)end
+
+--- Get the expanded state of the specified node.
+---@return boolean expanded Whether the node is expanded or not.
+function treeRootNode:isExpanded()end
+
+--- Remove a child from the node.
+---@param child BasaltTreeNode The child to remove.
+---@return self
+function treeRootNode:removeChild(child)end
+
+--- Find children by text.
+---@param text string The text to search for.
+---@return table<integer, BasaltTreeNode> children The children that match the text.
+function treeRootNode:findChildrenByText(text)end
+
+--- Get the text value of the node.
+---@return string text The text value of the node.
+function treeRootNode:getText()end
+
+--- Set the text value of the node.
+---@param text string The text value of the node.
+---@return self
+function treeRootNode:setText(text)end
+
+
+
+-- BasaltTreeNode
+
+---@class BasaltTreeNode : BasaltObject, BasaltVisualObject, BasaltTreeRootNode A treeview node object is used to create a hierarchical list of items.
+local treeNode = {}
+
+
+
+-- Main methods
+
+
+
+--- Get the parent of the node.
+---@return BasaltAnyTreeNode? parent The parent of the node.
+function treeNode:getParent()end
+
+
+
+--------------------------------------------------------------------------------
+--                                 BasaltTimer                                --
+--------------------------------------------------------------------------------
+
+---@class BasaltTimer : BasaltObject Timers allow you to execute code after a specified delay.
+local timer = {}
+
+
+
+-- Main methods
+
+
+
+--- Set the time the timer should wait before calling the function.
+---@param time number The time the timer should wait before calling the function.
+---@param repetitions number? The amount of times the timer should repeat. -1 is infinite.
+---@return self
+function timer:setTime(time, repetitions)end
+
+--- Start the timer
+---@return self
+function timer:start()end
+
+--- Cancel the timer.
+---@return self
+function timer:cancel()end
+
+
+
+-- Events
+
+
+
+--- Register an event handler for when the timer is done.
+---@param func fun(self:self) The function to call when the timer is done.
+---@return self
+function timer:onCall(func)end
 
 ---@class BasaltTheme
 ---@field BaseFrameBG Color|false
