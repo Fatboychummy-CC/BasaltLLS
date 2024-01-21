@@ -254,6 +254,11 @@ function object:onLoseFocus(func)end
 ---@return self
 function object:onEvent(func)end
 
+--- Add a new thread. WARNING: I am unsure where this method actually exists, so I am applying it to all objects until I can find it.
+---@param func function The function to call.
+---@return BasaltThread thread The thread object.
+function object:addThread(func)end
+
 
 
 --------------------------------------------------------------------------------
@@ -1579,6 +1584,116 @@ function slider:getIndex()end
 
 ---@class BasaltTextfield : BasaltObject, BasaltVisualObject, BasaltChangeableObject Textfields are used to allow the user to input text.
 local textfield = {}
+
+
+
+-- Main methods
+
+
+
+--- Get all lines in a textfield object as a table.
+---@return table<integer, string> lines All lines in a textfield object as a table.
+function textfield:getLines()end
+
+--- Get the content of a single line in a textfield object.
+---@param line integer The line to get the content of.
+---@return string line The content of the line.
+function textfield:getLine(line)end
+
+--- Edit the content of a line in the textfield object.
+---@param line integer The line to edit.
+---@param text string The new content of the line.
+---@return self
+function textfield:editLine(line, text)end
+
+--- Add a line to the textfield object.
+---@param text string The content of the line.
+---@param line integer? The line to add the content to. If left nil, will add the line to the end of the textfield.
+---@return self
+function textfield:addLine(text, line)end
+
+--- Remove a line from the textfield object.
+---@param line integer The line to remove.
+---@return self
+function textfield:removeLine(line)end
+
+--- Get the current text cursor position.
+---@return number x The current text cursor position in the line.
+---@return number y The current line the cursor is on.
+function textfield:getTextCursor()end
+
+--- Add keywords for special coloring in a textfield object.
+---@param color Color The color of the keyword.
+---@param keywords table<integer, string> The keywords to color.
+---@return self
+function textfield:addKeywords(color, keywords)end
+
+--- Adds a new rule for special coloring in a textfield object. Like addKeywords, but uses lua patterns and also allows you to change the background color.
+---@param pattern string The pattern to match.
+---@param textColor Color The color of the matched text.
+---@param bgColor Color The background color of the matched text.
+---@return self
+function textfield:addRule(pattern, textColor, bgColor)end
+
+--- Edit an existing rule for special coloring in a textfield object.
+---@param ... unknown Arguments for this function are unknown as the documentation page leads to a 404.
+---@return self
+function textfield:editRule(...)end
+
+--- Remove a rule for special coloring in a textfield object.
+---@param ... unknown Arguments for this function are unknown as the documentation page leads to a 404.
+---@return self
+function textfield:removeRule(...)end
+
+--- Get the current offset inside the textfield
+---@return unknown offset The current offset inside the textfield
+function textfield:getOffset()end
+
+--- Set the current offset inside the textfield
+---@param offset unknown The current offset inside the textfield
+---@return self
+function textfield:setOffset(offset)end
+
+--- Clear the textfield content.
+---@return self
+function textfield:clear()end
+
+--- Set the color of selections within the textbox.
+---@param ... unknown Arguments for this function are unknown as the documentation page leads to a 404.
+---@return self
+function textfield:setSelection(...)end
+
+--- Get the color of selections within the textbox.
+---@return unknown unknown Arguments for this function are unknown as the documentation page leads to a 404.
+function textfield:getSelection()end
+
+
+
+--------------------------------------------------------------------------------
+--                                BasaltThread                                --
+--------------------------------------------------------------------------------
+
+---@class BasaltThread : BasaltObject Threads allow you to run code concurrently in the background, without blocking the main program.
+local thread = {}
+
+
+
+-- Main methods
+
+
+
+--- Start a new thread
+---@param func function The function to run in the thread.
+---@return self
+function thread:start(func)end
+
+--- Stop the currently running thread.
+---@return self
+function thread:stop()end
+
+--- Returns the current status of the thread object.
+---@return "running"|"normal"|"suspended"|"dead" status The current status of the thread object.
+function thread:getStatus()end
 
 
 
